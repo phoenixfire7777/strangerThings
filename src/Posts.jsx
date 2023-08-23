@@ -7,17 +7,12 @@ export default function Posts({token}){
         async function fetchData() {
             const data = await fetchPosts()
             setPosts(data)
-            // console.log(posts)
-            console.log(data)
-            console.log(data[0])
-            console.log(data[0].description)
-
+           
         }
         fetchData()
     }, [])
     
-    console.log(posts[0])
-    // console.log(posts[0].description)
+   
 
     return(
         <div>
