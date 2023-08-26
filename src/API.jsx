@@ -2,7 +2,7 @@ const COHORT_NAME = "2302-acc-et-web-pt-a"
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
 //register new user
-export async function registerUser() {
+export async function registerUser(userName, password) {
     try {
       const response = await fetch(
         `${BASE_URL}/users/register`, {
@@ -12,8 +12,8 @@ export async function registerUser() {
         },
         body: JSON.stringify({
           user: {
-            username: '',
-            password: ''
+            username: userName,
+            password: password
           }
         })
       });
@@ -76,7 +76,7 @@ export async function registerUser() {
   
       const result = await response.json();
       console.log(result);
-      return result.data.posts
+      return result
     } catch (err) {
       console.error(err);
     }

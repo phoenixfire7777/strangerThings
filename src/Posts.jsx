@@ -6,13 +6,13 @@ export default function Posts({token}){
     useEffect(() => {
         async function fetchData() {
             const data = await fetchPosts()
-            setPosts(data)
+            setPosts(data.data.posts)
            
         }
         fetchData()
     }, [])
     
-   
+   console.log(posts)
 
     return(
         <div>
@@ -21,7 +21,7 @@ export default function Posts({token}){
         {
             posts.map((post)=>{
                 return (
-                    <div>
+                    <div key={posts}>
                         <h4>{post.title}</h4>
                         <h2>{post.description}</h2>
                         <h2>{post.price}</h2>
