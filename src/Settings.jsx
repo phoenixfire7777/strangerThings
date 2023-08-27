@@ -9,7 +9,7 @@ export default function({ setToken}){
     //     }
         return (
         <>
-        <button onClick={logout}>Logout</button>
+        {/* <button onClick={logout}>Logout</button> */}
         </>
         )
     }

@@ -39,7 +39,6 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
                 const token = result.data.token
                 localStorage.setItem('token', token)
                 setToken(token)
-                setAthenticate(true)
             } catch (err) {
                 console.error(err);
             }
