@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { login } from "./API";
+// import { login } from "./API";
 export default function Login({ setToken, setIsLoggedIn}) {
     const [userName, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -29,7 +29,7 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
             const token = result.data.token
             localStorage.setItem('token', token)
             setToken(token)
-            setIsLoggedIn(true)
+            
 
         } catch (err) {
             console.error(err);
