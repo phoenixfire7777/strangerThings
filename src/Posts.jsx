@@ -1,38 +1,38 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { fetchPosts } from "./API"
+import PostCard from './component/PostCard'
 
-export default function Posts({token}){
+export default function Posts({ token }) {
     const [posts, setPosts] = useState([])
+    async function fetchData() {
+        const data = await fetchPosts(token)
+        setPosts(data.data.posts)
+
+    }
     useEffect(() => {
-        async function fetchData() {
-            const data = await fetchPosts()
-            setPosts(data.data.posts)
-           
-        }
+
         fetchData()
     }, [])
-    
-   console.log(posts)
 
-    return(
+    console.log(posts)
+
+    return (
         <div>
             <h1>Posts Page</h1>
             <div>
-        {
-            posts.map((post)=>{
-                return (
-                    <div key={posts}>
-                        <h4>{post.title}</h4>
-                        <h2>{post.description}</h2>
-                        <h2>{post.price}</h2>
-                        <h2>{post.location}</h2>
-                        <h2>{post.willDeliver}</h2>
-                        
-                    </div>
-                )
-            })
-        }
-    </div>
+                {
+                    posts.map((post) => {
+                        return (
+                            <PostCard
+                                post={post}
+                                token={token}
+                                fetchPosts={fetchData}
+                            />
+
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

@@ -4,5 +4,5 @@ export default function Logout({ setToken}){
         localStorage.clear()
         setToken(null)
     }
-    return <button onClick={logout}>Logout</button>
+    return <button>Logout</button>
 }

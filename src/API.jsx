@@ -52,13 +52,13 @@ export async function registerUser(userName, password) {
   }
 
   //get user 
-  export async function myData() {
+  export async function myData(token) {
 
     try {
       const response = await fetch(`${BASE_URL}/users/me`, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING_HERE}`
+          'Authorization': `Bearer ${token}`
         },
       });
       const result = await response.json();
@@ -70,9 +70,14 @@ export async function registerUser(userName, password) {
   }
 
   //get posts
-  export async function fetchPosts(){
+  export async function fetchPosts(token){
     try {
-      const response = await fetch(`${BASE_URL}/posts`)
+      const response = await fetch(`${BASE_URL}/posts`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
   
       const result = await response.json();
       console.log(result);
@@ -110,16 +115,16 @@ export async function registerUser(userName, password) {
   }
   
   //update posts
-  export async function updatePost () {
+  export async function updatePost (Post_ID, token) {
     try {
       // You will need to insert a variable into the fetch template literal 
       // in order to make the POST_ID dynamic. 
       // 5e8d1bd48829fb0017d2233b is just for demonstration.
-      const response = await fetch(`${BASE_URL}/posts/5e8d1bd48829fb0017d2233b`, {
+      const response = await fetch(`${BASE_URL}/posts/${Post_ID}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING_HERE}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           post: {
@@ -140,13 +145,13 @@ export async function registerUser(userName, password) {
   }
 
   //delete posts
-  export async function deletePost () {
+  export async function deletePost (Post_ID, token) {
     try {
-      const response = await fetch(`${BASE_URL}/posts/`, {
+      const response = await fetch(`${BASE_URL}/posts/${Post_ID}`, {
         method: "DELETE",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING_HERE}`
+          'Authorization': `Bearer ${token}`
         }
       });
       const result = await response.json();
