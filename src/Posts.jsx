@@ -33,7 +33,7 @@ export default function Posts({ token }) {
         <div>
             <h1>Posts Page</h1>
             <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
+                
                 <label htmlFor="search">search</label>
                 <input
                     type="text"
