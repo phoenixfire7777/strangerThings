@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function NavBar(token, isLoggedIn) {
-    if (isLoggedIn) {
-        console.log("logged in")
-    }
-    else {
-        console.log("logged out")
-    }
+export default function NavBar(token) {
 
     return (
         <>

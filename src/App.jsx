@@ -19,7 +19,7 @@ console.log(token)
       <NavBar token={token} />
       <Routes>
         <Route path="/" element={<Home token={token} setToken={setToken} />} />
-        <Route path="/posts" element={<Posts token={token} />} />
+        <Route path="/posts/*" element={<Posts token={token} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/Settings" element={<Settings setToken={setToken} />} />

@@ -1,10 +1,13 @@
 import { deletePost } from "../API"
+import { Link } from "react-router-dom"
+import UpdatePost from "../UpdatePost"
+import { Routes, Route } from "react-router-dom"
 
-export default function PostCard({post, token, fetchPosts}){
-    const {_id, title, description, price, location, willDeliver, isAuthor} = post
-    console.log(isAuthor)
 
-    async function handleClick(_id){
+export default function PostCard({ post, token, fetchPosts }) {
+    const { _id, title, description, price, location, willDeliver, isAuthor } = post
+    console.log(token)
+    async function handleClick(_id) {
         await deletePost(_id, token)
         await fetchPosts()
         console.log("post deleted")
@@ -17,9 +20,10 @@ export default function PostCard({post, token, fetchPosts}){
             <h2>Location: {location}</h2>
             <h2>Will Deliver{willDeliver}</h2>
             {isAuthor
-                ?<button onClick={() => handleClick(_id)}>Delete</button>
+                ? <button onClick={() => handleClick(_id)}>Delete</button>
                 : <></>
             }
+            
         </div>
     )
 

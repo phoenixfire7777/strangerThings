@@ -115,7 +115,7 @@ export async function registerUser(userName, password) {
   }
   
   //update posts
-  export async function updatePost (Post_ID, token) {
+  export async function updatePost (Post_ID, token, title, description, price, location, willDeliver) {
     try {
       // You will need to insert a variable into the fetch template literal 
       // in order to make the POST_ID dynamic. 
@@ -128,11 +128,11 @@ export async function registerUser(userName, password) {
         },
         body: JSON.stringify({
           post: {
-            title: "My favorite stuffed animal",
-            description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-            price: "$480.00",
-            location: "New York, NY",
-            willDeliver: true
+            title: title,
+            description: description,
+            price: price,
+            location: location,
+            willDeliver: willDeliver
           }
         })
       });
