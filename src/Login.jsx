@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // import { login } from "./API";
-export default function Login({ setToken, setIsLoggedIn}) {
+export default function Login({ setToken, setAuthenticated}) {
     const [userName, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const COHORT_NAME = "2302-acc-et-web-pt-a"
@@ -29,6 +29,7 @@ const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
             const token = result.data.token
             localStorage.setItem('token', token)
             setToken(token)
+            setAuthenticated(true)
             
 
         } catch (err) {

@@ -11,21 +11,21 @@ import NewPost from "./NewPost"
 import Logout from "./component/Logout"
 function App() {
  const [token, setToken] = useState(localStorage.getItem("token"))
+ const [athenticated, setAthenticated] = useState(false)
  
  
 console.log(token)
   return (
     <div id="main-section">
       <h1>Stranger Things</h1>
-      <NavBar token={token} />
+      <NavBar athenticated />
       <Routes>
-        <Route path="/" element={<Login setToken={setToken} />} />
-        <Route path="/home" element={<Home token={token} setToken={setToken} />} />
+        <Route path="/" element={<Login setToken={setToken} setAthenticated={setAthenticated}/>} />
+        <Route path="/home" element={<Home token={token} setToken={setToken}/>} />
         <Route path="/posts/*" element={<Posts token={token} />} />
-        <Route path="/register" element={<Register setToken={setToken} />} />
-        <Route path="/Settings" element={<Settings setToken={setToken} />} />
+        <Route path="/register" element={<Register setToken={setToken} setAthenticated={setAthenticated}/>} />
         <Route path="/newPosts" element={<NewPost token={token} />} />
-        <Route path="/logout" element={<Logout setToken={setToken}/>} />
+        <Route path="/logout" element={<Logout setToken={setToken} setAthenticated={setAthenticated}/>} />
       </Routes>
     </div>
   )
