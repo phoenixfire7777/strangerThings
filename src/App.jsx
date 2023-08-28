@@ -8,6 +8,7 @@ import Register from "./Register"
 import Login from "./Login"
 import Settings from "./Settings"
 import NewPost from "./NewPost"
+import Logout from "./component/Logout"
 function App() {
  const [token, setToken] = useState(localStorage.getItem("token"))
  
@@ -24,6 +25,7 @@ console.log(token)
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/Settings" element={<Settings setToken={setToken} />} />
         <Route path="/newPosts" element={<NewPost token={token} />} />
+        <Route path="/logout" element={<Logout setToken={setToken}/>} />
       </Routes>
     </div>
   )

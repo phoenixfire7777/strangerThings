@@ -2,6 +2,7 @@ import { myData } from "./API"
 import Register from "./Register"
 import { useState, useEffect } from "react"
 import PostCard from "./component/PostCard";
+import Messages from "./component/Messages";
 export default function Home({ token }) {
     const [userData, setUserData] = useState([])
     const [userPosts, setUserPosts] = useState([])
@@ -20,15 +21,19 @@ export default function Home({ token }) {
 
             <p><strong>User Name:</strong> {userData.username}</p>
             {
-            userPosts.map((post)=>{
-                return (
-                    <PostCard
-                        post={post}
-                        />
-                    
-                )
-            })
-        }
+                userPosts.map((post) => {
+                    return (
+                        <div>
+                            <PostCard
+                                post={post}
+                            />
+                            <Messages
+                                messages={post.messages}
+                            />
+                        </div>
+                    )
+                })
+            }
 
         </div>
     )

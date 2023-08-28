@@ -163,17 +163,17 @@ export async function registerUser(userName, password) {
   }
   
 // create new message
-export async function postMessage () {
+export async function postMessage (Post_ID, token, message) {
     try {
-      const response = await fetch(`${BASE_URL}/posts/5e8929ddd439160017553e06/messages`, {
+      const response = await fetch(`${BASE_URL}/posts/${Post_ID}/messages`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING_HERE}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           message: {
-            content: "Do you still have this?  Would you take $10 less?"
+            content: message
           }
         })
       });

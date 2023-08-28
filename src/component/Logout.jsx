@@ -1,8 +1,7 @@
 export default function Logout({ setToken}){
-   async function logout(e){
-    e.preventDefault()
+   async function logout(){
         localStorage.clear()
         setToken(null)
     }
-    return <button>Logout</button>
+    return <button onClick={() => logout()}>Logout</button>
 }

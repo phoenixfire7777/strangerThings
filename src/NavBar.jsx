@@ -11,7 +11,7 @@ export default function NavBar(token) {
                     <Link to="/login">Login</Link>
                     <Link to="/settings">Settings</Link>
                     <Link to="/newPosts">New Posts</Link>
-
+                    <Link to="/logout">Logout</Link>
                 </div>
            
         </>
