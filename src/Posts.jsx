@@ -61,6 +61,7 @@ export default function Posts({ token }) {
                                         <Route
                                             path="updatePost"
                                             element={<UpdatePost
+                                                key={post._id}
                                                 token={token}
                                                 id={post._id}
                                                 fetchPosts={fetchData}
